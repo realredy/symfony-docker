@@ -8,6 +8,8 @@ fos_ck_editor:
     styles:
         # configs:
             my_styles:
+                - { name: "code format", element: "pre", attributes: { class: "codeFormat" }}
+                - { name: "paragraph", element: "p", attributes: { class: "paragraphText" }}
                 - { name: "Block Quote", element: "span", attributes: { class: "customblockquote" }}
                 - { name: "dowbleSect 40-60", element: "section", attributes: { class: "DowbleElement4060" }}
                 - { name: "dowbleSect 50-50", element: "section", attributes: { class: "DowbleElement5050" }}

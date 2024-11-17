@@ -1,0 +1,20 @@
+@import '../general.scss';
+ 
+.listWork{
+  width: 99%;
+    &_wrapper{
+        padding: 10px;
+       
+        &-table{
+          font-size: $smallText;
+          @include tableStyle;
+          td, th {
+            @include tableTdTh;
+          }
+          thead,tfoot{
+            background: white;
+          }
+
+        }
+    }
+}

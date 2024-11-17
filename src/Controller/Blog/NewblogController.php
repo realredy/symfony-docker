@@ -41,13 +41,14 @@ class NewblogController extends AbstractController
       dd($e);
     }
 
-    $imageBank = $fetchdata->fetchGitHubInformation();
-    $form = $this->createForm(Articleform::class);
+     $imageBank = $fetchdata->fetchGitHubInformation();
+ 
+     $form = $this->createForm(Articleform::class);
 
     return $this->render('newblog/index.html.twig', [
-      'Articleform'  => $form->createView(),
-      'mediaElement' => $imageBank,
-      'status'       => $this->status
+       'Articleform'  => $form->createView(),
+       'mediaElement' => $imageBank,
+       'status'       => $this->status 
     ]);
   }
 }

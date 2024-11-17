@@ -12,33 +12,48 @@
 
                {% if status == true %}
                 <div class="newWork_wrapper_status">
-                  <span>👏 Great. work was submited! </span>
+                  <span>👏 Great. work was edited! </span>
                 </div>
                {% endif %}
 
-         
-    {{ form_start(workform, {'attr': {'class': 'newWork_wrapper-form'},
-    'action': '/work/newWork', 'method': 'POST'}
+      {% block javascript %}
+<script>
+window.onload = function() {
+    const imageSelector = document.querySelector('.newWork_wrapper-form_containnerdowble-dowbleBloqueLeft-image input');
+    const image = document.getElementsByClassName('newWork_wrapper-form_containnerdowble-dowbleBloqueright-imageBox')[0];
+     if(image && imageSelector){
+        image.style.backgroundImage = 'url(' + imageSelector.value + ')';
+     }
+   
+
+}
+</script>
+{% endblock %}   
+
+      
+
+    {{ form_start(edditWorkForm, {'attr': {'class': 'newWork_wrapper-form'},
+    'action': '/work/edditWork?type=save', 'method': 'POST'}
     ) }}
       
    <div class="newWork_wrapper-form_containner"> 
    <div class="newWork_wrapper-form_containnerdowble"> 
       <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueLeft"> 
             <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueLeft-image"> 
-            {{ form_label(workform.image) }} 
-            {{ form_widget(workform.image) }} 
+            {{ form_label(edditWorkForm.image) }} 
+            {{ form_widget(edditWorkForm.image) }} 
             </div>
             <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueLeft-title"> 
-            {{ form_label(workform.title) }} 
-            {{ form_widget(workform.title) }} 
+            {{ form_label(edditWorkForm.title) }} 
+            {{ form_widget(edditWorkForm.title) }} 
             </div>
             <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueLeft-tools"> 
-            {{ form_label(workform.tools) }}  
-            {{ form_widget(workform.tools) }} 
+            {{ form_label(edditWorkForm.tools) }}  
+            {{ form_widget(edditWorkForm.tools) }} 
             </div>
             <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueLeft-link"> 
-            {{ form_label(workform.link) }}  
-            {{ form_widget(workform.link) }} 
+            {{ form_label(edditWorkForm.link) }}  
+            {{ form_widget(edditWorkForm.link) }} 
             </div>
     </div>
    <div class="newWork_wrapper-form_containnerdowble-dowbleBloqueright">
@@ -51,12 +66,12 @@
    </div>
  </div>
         <div class="newWork_wrapper-form_containner-body"> 
-        {{ form_label(workform.body) }}  
-        {{ form_widget(workform.body) }} 
+        {{ form_label(edditWorkForm.body) }}  
+        {{ form_widget(edditWorkForm.body) }} 
         </div>
        
         <div class="newWork_wrapper-form_containner-destination">  
-        {{ form_widget(workform.id) }} 
+        {{ form_widget(edditWorkForm.id) }} 
         </div>
         <div class="newWork_wrapper-form_containner-btn"> 
         <input class="newWork_wrapper-form_containner-btn-submit" type="submit" value="Save work" /> 
@@ -64,7 +79,7 @@
 
     </div> 
      
- {{ form_end(workform) }}
+ {{ form_end(edditWorkForm) }}
       
         
        

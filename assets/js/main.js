@@ -22,6 +22,7 @@ import DelettePost from "./PostDelette";
 import DelettePage from "./PageDelette";
 import DeletteFaq from "./DeletteFaq";
 import WorkActions from "./work";
+import DeletteWork from "./deletteWork";
  
  
 window.addEventListener("load", () => {
@@ -36,6 +37,7 @@ window.addEventListener("load", () => {
   window.DelettePage                    = new DelettePage();
   window.DeletteFaq                     = new DeletteFaq();
   window.WorkActions                    = new WorkActions();
+  window.DeletteWork                    = new DeletteWork
 });
 
     

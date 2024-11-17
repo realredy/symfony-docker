@@ -1,0 +1,99 @@
+
+{% extends 'pannels.html.twig' %}
+
+{% block title %}™️ List of Works{% endblock %}
+ 
+{% block backendBody %}
+<h1>
+  ✨ List of Works.
+</h1>
+<div class="listWork">
+  <div class="listWork_wrapper">
+
+               {% if status == true %}
+                <div class="newWork_wrapper_status">
+                  <span>👏 Great. work was deletted! </span>
+                </div>
+               {% endif %}
+
+       
+        <table class="listWork_wrapper-table">
+        <thead class="listWork_wrapper-table-head">
+          <tr>
+            <td>
+              title
+            </td> 
+            <td>
+              eddit
+            </td>
+            <td>
+              delette
+            </td>
+          </tr>
+        </thead>
+
+        <tbody>
+          {% if workList %}
+            {% for work in workList %} 
+              <tr>
+                <td width="90%"> 
+                    {{ work.title }} 
+                </td>
+                
+               
+                <td width="5%">
+                  <a href="{{
+                    path(
+                      'app_edditWork',
+                      {
+                        type: 'eddit',
+                        value: work.id
+                      }
+                    )
+                    }}">
+                    <button class="{{ 'actionEddit__' ~ work.id }}">
+                      <i style="color: #ba36e9;"
+                        class="fa-solid fa-pen-to-square">
+
+                      </i>
+                    </button>
+                  </a>
+                </td>
+                <td width="5%">
+                  <a id="deletteWorkFromListPage" href="{{
+                    path('app_listWork',{
+                      value: work.id
+                    })
+                  }}">
+                    <button class="{{ 'actionTrash__ ' ~ work.id }}">
+                      <i style="color: #fa6868;" class="fa-solid fa-trash"></i>
+                    </button>
+                  </a>
+                </td>
+              </tr>
+            {% endfor %}
+          {% endif %}
+        </tbody>
+
+        <tfoot>
+          <tr>
+            <td>
+              title
+            </td>  
+            <td>
+              eddit
+            </td>
+            <td>
+              delette
+            </td>
+          </tr>
+        </tfoot>
+      </table>
+       
+        </div>
+     </div>
+     
+{% endblock %}
+
+
+ 

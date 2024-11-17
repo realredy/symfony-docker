@@ -17,7 +17,14 @@ class Fetchdata
     {
         $response = $this->client->request(
             'GET',
-            'https://media.lavour.es/show.php'
+            'https://media.lavour.es/imageslist/',
+            [
+                 'verify_peer' => false,
+                 'verify_host' => false,
+                'headers' => [
+                    'Accept' => 'application/json',
+                ],
+            ]
         );
 
         $statusCode = $response->getStatusCode();
